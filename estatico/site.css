@@ -182,6 +182,19 @@ ul.tarefas a:hover { background: var(--verde-claro); }
 ul.tarefas .diz { display: block; font-weight: 600; font-size: 1.03rem; }
 ul.tarefas .norma { display: block; color: var(--suave); font-size: 0.89rem; margin-top: 0.15rem; }
 
+p.publico-alvo {
+  grid-column: 1 / -1;
+  background: var(--alerta-fundo);
+  border: 1px solid var(--alerta);
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  margin: 0 0 1.4rem;
+  font-size: 0.95rem;
+  max-width: none;
+  color: var(--alerta);
+}
+p.publico-alvo a { color: var(--alerta); white-space: nowrap; }
+
 /* --------------------------------------------------------------- cartões */
 
 section.cartao {
