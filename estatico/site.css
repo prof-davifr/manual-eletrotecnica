@@ -1,0 +1,351 @@
+/* Manual do Estudante. Uma folha só, sem framework, sem CDN e sem JavaScript: a
+   página precisa abrir no celular do estudante, com rede ruim, e continuar
+   legível. A folha do painel (painel/estatico/painel.css) é densa de propósito;
+   esta é o contrário: pouco por tela, letra grande, linha curta.
+
+   A leitura de manual é sequencial. Por isso o capítulo tem trilho lateral com
+   a ordem das páginas, e o pé de cada página leva à seguinte. */
+
+:root {
+  --tinta: #17201a;
+  --papel: #ffffff;
+  --fundo: #f2f5f2;
+  --borda: #d5ded7;
+  --suave: #5d6b62;
+  --verde: #14532d;
+  --verde-escuro: #0d3a1f;
+  --verde-claro: #e7f0ea;
+  --alerta: #92400e;
+  --alerta-fundo: #fdf6ec;
+  --realce: #b45309;
+  --largura: 64rem;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--tinta);
+  font: 18px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.pular {
+  position: absolute;
+  left: -100vw;
+}
+.pular:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+  z-index: 10;
+  background: #fff;
+  color: var(--verde);
+  padding: 0.5rem 0.9rem;
+  border-radius: 6px;
+}
+
+/* ---------------------------------------------------------------- cabeçalho */
+
+header.topo { background: var(--verde); color: #fff; padding: 1.2rem 1rem 0; }
+header.topo .interno { max-width: var(--largura); margin: 0 auto; }
+header.topo p.curso {
+  margin: 0;
+  font-size: 0.82rem;
+  opacity: 0.85;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+header.topo h1 { margin: 0.25rem 0 0.9rem; font-size: 1.6rem; line-height: 1.2; }
+header.topo h1 a { color: #fff; text-decoration: none; }
+
+nav.abas {
+  display: flex;
+  gap: 0.2rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+nav.abas::-webkit-scrollbar { display: none; }
+nav.abas a {
+  color: #e8f0ea;
+  text-decoration: none;
+  padding: 0.55rem 0.9rem;
+  border-radius: 7px 7px 0 0;
+  font-size: 0.96rem;
+  white-space: nowrap;
+}
+nav.abas a:hover { background: rgba(255, 255, 255, 0.14); }
+nav.abas a.ativa { background: var(--fundo); color: var(--verde); font-weight: 600; }
+
+nav.trilha { background: var(--papel); border-bottom: 1px solid var(--borda); }
+nav.trilha .interno {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 0.55rem 1rem;
+  font-size: 0.88rem;
+  color: var(--suave);
+}
+nav.trilha a { color: var(--suave); }
+nav.trilha strong { color: var(--tinta); font-weight: 600; }
+nav.trilha span { margin: 0 0.35rem; }
+
+/* ------------------------------------------------------------------ corpo */
+
+main {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 1.5rem 1rem 4rem;
+}
+main .corpo { min-width: 0; }
+
+aside.rail { display: none; }
+
+h2 { font-size: 1.32rem; margin: 2.2rem 0 0.8rem; line-height: 1.3; }
+h3 { font-size: 1.1rem; margin: 1.7rem 0 0.6rem; }
+h4 { font-size: 1rem; margin: 1.3rem 0 0.5rem; color: var(--suave); }
+p { margin: 0.8rem 0; max-width: 40rem; }
+ul, ol { padding-left: 1.3rem; max-width: 40rem; }
+li { margin: 0.45rem 0; }
+a { color: var(--verde); }
+code { background: var(--verde-claro); border-radius: 3px; padding: 0.05em 0.3em; font-size: 0.92em; }
+
+.chamada { font-size: 1.08rem; color: var(--suave); margin: 0 0 1.5rem; }
+.fonte { color: var(--suave); font-size: 0.9rem; }
+
+section.abertura { margin-bottom: 1.8rem; }
+section.abertura h2 { margin-top: 0.6rem; font-size: 1.55rem; }
+section.abertura p { font-size: 1.06rem; }
+
+/* ------------------------------------------------------- listas de entrada */
+
+ul.capitulos, ul.paginas, ul.tarefas, ul.vagas { list-style: none; padding: 0; margin: 0; max-width: none; }
+ul.capitulos { display: grid; gap: 0.7rem; }
+ul.capitulos a {
+  display: block;
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-left: 5px solid var(--verde);
+  border-radius: 9px;
+  padding: 1rem 1.1rem;
+  text-decoration: none;
+  color: var(--tinta);
+}
+ul.capitulos a:hover { background: var(--verde-claro); border-left-color: var(--verde-escuro); }
+ul.capitulos .nome { display: block; font-weight: 700; font-size: 1.12rem; color: var(--verde); }
+ul.capitulos .chamada {
+  display: block;
+  margin: 0.35rem 0 0.3rem;
+  font-size: 0.96rem;
+  color: var(--tinta);
+}
+ul.capitulos .fonte { display: block; }
+
+ul.paginas { display: grid; gap: 0.6rem; margin-top: 1.2rem; }
+ul.paginas a {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-radius: 9px;
+  padding: 0.9rem 1.1rem;
+  text-decoration: none;
+  color: var(--tinta);
+}
+ul.paginas a:hover { background: var(--verde-claro); }
+ul.paginas .ordem {
+  flex: none;
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 999px;
+  background: var(--verde-claro);
+  color: var(--verde);
+  font-weight: 700;
+  font-size: 0.92rem;
+  display: grid;
+  place-items: center;
+}
+ul.paginas .nome { display: block; font-weight: 600; color: var(--verde); }
+ul.paginas .resumo { display: block; margin-top: 0.2rem; font-size: 0.94rem; color: var(--suave); }
+
+ul.tarefas { display: grid; gap: 0.6rem; }
+ul.tarefas a {
+  display: block;
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-left: 5px solid var(--verde);
+  border-radius: 8px;
+  padding: 0.9rem 1rem;
+  text-decoration: none;
+  color: var(--tinta);
+}
+ul.tarefas a:hover { background: var(--verde-claro); }
+ul.tarefas .diz { display: block; font-weight: 600; font-size: 1.03rem; }
+ul.tarefas .norma { display: block; color: var(--suave); font-size: 0.89rem; margin-top: 0.15rem; }
+
+/* --------------------------------------------------------------- cartões */
+
+section.cartao {
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-radius: 9px;
+  padding: 1rem 1.2rem 1.2rem;
+  margin: 1.2rem 0;
+}
+section.cartao > h2:first-child, section.cartao > h3:first-child { margin-top: 0.2rem; }
+section.cartao.destaque { border-left: 5px solid var(--realce); }
+section.rodape-da-pagina { background: transparent; border-style: dashed; }
+
+dl.ficha { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: 0.4rem 1rem; margin: 0; }
+dl.ficha dt { color: var(--suave); font-size: 0.95rem; }
+dl.ficha dd { margin: 0; }
+
+.marca {
+  display: inline-block;
+  background: var(--verde-claro);
+  color: var(--verde);
+  border-radius: 999px;
+  padding: 0.1rem 0.7rem;
+  font-size: 0.85rem;
+  margin-right: 0.3rem;
+}
+.marca.agora { background: var(--verde); color: #fff; }
+
+.aviso {
+  background: var(--alerta-fundo);
+  border-left: 4px solid var(--alerta);
+  border-radius: 0 6px 6px 0;
+  padding: 0.8rem 1rem;
+  margin: 1.2rem 0;
+  font-size: 0.97rem;
+}
+.aviso p { margin: 0.4rem 0; }
+
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+th, td { border-bottom: 1px solid var(--borda); padding: 0.5rem 0.6rem; text-align: left; vertical-align: top; }
+th { color: var(--suave); font-weight: 600; font-size: 0.88rem; }
+tr.em-curso td { background: var(--verde-claro); }
+
+blockquote {
+  margin: 1rem 0;
+  padding: 0.2rem 0 0.2rem 1rem;
+  border-left: 3px solid var(--borda);
+  color: var(--suave);
+}
+
+details { margin: 1.2rem 0; }
+details summary { cursor: pointer; font-weight: 600; color: var(--verde); }
+
+/* ----------------------------------------------------- vagas de estágio */
+
+ul.vagas { display: grid; gap: 1rem; margin-top: 1.4rem; }
+li.vaga {
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-radius: 9px;
+  padding: 1rem 1.2rem 1.2rem;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+li.vaga h3 { margin-top: 0.2rem; }
+li.vaga .empresa { color: var(--verde); font-weight: 600; margin: 0.2rem 0 0.6rem; }
+li.vaga figure { margin: 0; }
+li.vaga img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--borda);
+  border-radius: 7px;
+  background: #fff;
+}
+li.vaga figcaption { margin-top: 0.35rem; }
+
+/* -------------------------------------------------------- passo a passo */
+
+nav.passos {
+  display: grid;
+  gap: 0.6rem;
+  margin: 2.6rem 0 0;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--borda);
+}
+nav.passos .passo {
+  display: block;
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-radius: 9px;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+  color: var(--tinta);
+}
+nav.passos .passo:hover { background: var(--verde-claro); }
+nav.passos .rotulo { display: block; font-size: 0.85rem; color: var(--suave); }
+nav.passos .nome { display: block; font-weight: 600; color: var(--verde); margin-top: 0.1rem; }
+nav.passos .proximo { text-align: right; }
+
+/* ----------------------------------------------------------------- rodapé */
+
+footer.rodape {
+  border-top: 1px solid var(--borda);
+  background: var(--papel);
+  padding: 1.5rem 1rem 3rem;
+}
+footer.rodape .interno { max-width: var(--largura); margin: 0 auto; color: var(--suave); font-size: 0.9rem; }
+footer.rodape p { max-width: 46rem; }
+
+/* ------------------------------------------------------------ telas largas */
+
+@media (min-width: 40rem) {
+  header.topo h1 { font-size: 1.9rem; }
+  ul.tarefas { grid-template-columns: 1fr 1fr; }
+  ul.capitulos { grid-template-columns: 1fr 1fr; }
+  nav.passos { grid-template-columns: 1fr 1fr; }
+  li.vaga { grid-template-columns: minmax(0, 1fr) minmax(0, 18rem); align-items: start; }
+}
+
+@media (min-width: 62rem) {
+  main.com-rail {
+    display: grid;
+    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+  }
+  aside.rail {
+    display: block;
+    position: sticky;
+    top: 1.5rem;
+    font-size: 0.94rem;
+  }
+  aside.rail .rotulo {
+    margin: 0.4rem 0 0.6rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--suave);
+  }
+  aside.rail ol { list-style: none; padding: 0; margin: 0; counter-reset: passo; }
+  aside.rail li { margin: 0; counter-increment: passo; }
+  aside.rail li a {
+    display: block;
+    padding: 0.4rem 0.7rem 0.4rem 2rem;
+    border-left: 2px solid var(--borda);
+    text-decoration: none;
+    color: var(--suave);
+    position: relative;
+  }
+  aside.rail li a::before {
+    content: counter(passo);
+    position: absolute;
+    left: 0.6rem;
+    color: var(--borda);
+    font-size: 0.82rem;
+  }
+  aside.rail li a:hover { color: var(--verde); background: var(--verde-claro); }
+  aside.rail li.aqui a {
+    border-left-color: var(--verde);
+    color: var(--verde);
+    font-weight: 600;
+    background: var(--verde-claro);
+  }
+  aside.rail li.aqui a::before { color: var(--verde); }
+}
