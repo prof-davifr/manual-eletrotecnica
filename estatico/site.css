@@ -48,6 +48,19 @@ body {
 
 header.topo { background: var(--verde); color: #fff; padding: 1.2rem 1rem 0; }
 header.topo .interno { max-width: var(--largura); margin: 0 auto; }
+header.topo .identidade {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  margin-bottom: 0.9rem;
+}
+header.topo .identidade > div { min-width: 0; }
+header.topo a.simbolo {
+  flex: none;
+  padding-right: 1.1rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.35);
+}
+header.topo a.simbolo img { display: block; width: 7.5rem; height: auto; }
 header.topo p.curso {
   margin: 0;
   font-size: 0.82rem;
@@ -55,7 +68,7 @@ header.topo p.curso {
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
-header.topo h1 { margin: 0.25rem 0 0.9rem; font-size: 1.6rem; line-height: 1.2; }
+header.topo h1 { margin: 0.25rem 0 0; font-size: 1.6rem; line-height: 1.2; }
 header.topo h1 a { color: #fff; text-decoration: none; }
 
 nav.abas {
@@ -310,6 +323,7 @@ footer.rodape p { max-width: 46rem; }
 
 @media (min-width: 40rem) {
   header.topo h1 { font-size: 1.9rem; }
+  header.topo a.simbolo img { width: 10rem; }
   ul.tarefas { grid-template-columns: 1fr 1fr; }
   ul.capitulos { grid-template-columns: 1fr 1fr; }
   nav.passos { grid-template-columns: 1fr 1fr; }
