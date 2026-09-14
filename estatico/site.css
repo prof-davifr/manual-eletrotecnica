@@ -232,6 +232,11 @@ a.botao {
   white-space: nowrap;
 }
 a.botao:hover { background: var(--verde-escuro); }
+a.botao .tamanho { font-weight: 400; font-size: 0.85em; opacity: 0.85; margin-left: 0.3rem; }
+a.botao.secundario { background: var(--papel); color: var(--verde); border: 2px solid var(--verde); }
+a.botao.secundario:hover { background: var(--verde-claro); }
+li.documento .alerta { font-size: 0.9rem; color: var(--alerta); background: var(--alerta-fundo); border-radius: 6px; padding: 0.3rem 0.6rem; margin: 0.35rem 0; }
+nav.sumario-arquivos { font-size: 0.95rem; margin: 1.2rem 0 0.4rem; }
 section.cartao.documentos { border-left-color: var(--verde); }
 
 ul.documentos { list-style: none; padding: 0; margin: 0.4rem 0 1.6rem; max-width: none; display: grid; gap: 0.7rem; }
