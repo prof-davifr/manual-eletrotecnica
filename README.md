@@ -1,7 +1,7 @@
-# Manual do Estudante — Curso Técnico em Eletrotécnica
+# Manual do Curso de Eletrotécnica
 
-Manual de orientação para quem estuda no Curso Técnico em Eletrotécnica do
-IFBA, Campus Salvador, nas formas integrada e subsequente.
+Manual de orientação do Curso Técnico em Eletrotécnica do IFBA, Campus
+Salvador, nas formas integrada e subsequente, para estudantes e professores.
 
 **No ar:** https://prof-davifr.github.io/manual-eletrotecnica/
 
@@ -12,6 +12,10 @@ campus.
 
 Há também uma página para quem ensina, com a caderneta, a nota, a recuperação e
 o conselho de classe: <https://prof-davifr.github.io/manual-eletrotecnica/professores/>.
+
+Os modelos em branco do TCC — pré-projeto, trabalho escrito, ata, barema,
+declaração e despacho — estão em
+<https://prof-davifr.github.io/manual-eletrotecnica/conclusao/documentos-tcc-banca.html>.
 
 Este repositório guarda apenas o site já gerado. O conteúdo se escreve na base
 de normas da coordenação, e o HTML se refaz a cada publicação. Em caso de

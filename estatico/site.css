@@ -1,4 +1,4 @@
-/* Manual do Estudante. Uma folha só, sem framework, sem CDN e sem JavaScript: a
+/* Manual do Curso de Eletrotécnica. Uma folha só, sem framework, sem CDN e sem JavaScript: a
    página precisa abrir no celular do estudante, com rede ruim, e continuar
    legível. A folha do painel (painel/estatico/painel.css) é densa de propósito;
    esta é o contrário: pouco por tela, letra grande, linha curta.
@@ -221,10 +221,36 @@ section.cartao > h2:first-child, section.cartao > h3:first-child { margin-top: 0
 section.cartao.destaque { border-left: 5px solid var(--realce); }
 section.rodape-da-pagina { background: transparent; border-style: dashed; }
 
-ul.modelos { list-style: none; padding: 0; margin: 0.4rem 0 1rem; }
-ul.modelos li { margin: 0.7rem 0; }
-ul.modelos a { font-weight: 600; }
-ul.modelos .descricao { font-size: 0.94rem; color: var(--suave); }
+a.botao {
+  display: inline-block;
+  background: var(--verde);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 7px;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+}
+a.botao:hover { background: var(--verde-escuro); }
+section.cartao.documentos { border-left-color: var(--verde); }
+
+ul.documentos { list-style: none; padding: 0; margin: 0.4rem 0 1.6rem; max-width: none; display: grid; gap: 0.7rem; }
+li.documento {
+  display: grid;
+  gap: 0.6rem 1.2rem;
+  align-items: center;
+  background: var(--papel);
+  border: 1px solid var(--borda);
+  border-left: 5px solid var(--verde);
+  border-radius: 9px;
+  padding: 0.9rem 1.1rem;
+  margin: 0;
+}
+li.documento h4 { margin: 0; color: var(--verde); font-size: 1.08rem; }
+li.documento p { margin: 0.2rem 0 0; }
+li.documento .quem { font-size: 0.88rem; font-weight: 600; color: var(--suave); }
+li.documento .descricao { font-size: 0.94rem; }
+li.documento a.botao { justify-self: start; }
 
 dl.ficha { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: 0.4rem 1rem; margin: 0; }
 dl.ficha dt { color: var(--suave); font-size: 0.95rem; }
@@ -333,6 +359,8 @@ footer.rodape p { max-width: 46rem; }
   ul.capitulos { grid-template-columns: 1fr 1fr; }
   nav.passos { grid-template-columns: 1fr 1fr; }
   li.vaga { grid-template-columns: minmax(0, 1fr) minmax(0, 18rem); align-items: start; }
+  li.documento { grid-template-columns: minmax(0, 1fr) auto; }
+  li.documento a.botao { justify-self: end; }
 }
 
 @media (min-width: 62rem) {
