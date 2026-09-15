@@ -421,6 +421,7 @@ li.vaga img {
   background: #fff;
 }
 li.vaga figcaption { margin-top: 0.35rem; }
+li.vaga p.link-da-vaga a { font-weight: 600; }
 
 /* -------------------------------------------------------- passo a passo */
 
@@ -464,6 +465,7 @@ footer.rodape p { max-width: 46rem; }
   ul.capitulos { grid-template-columns: 1fr 1fr; }
   nav.passos { grid-template-columns: 1fr 1fr; }
   li.vaga { grid-template-columns: minmax(0, 1fr) minmax(0, 18rem); align-items: start; }
+  li.vaga.sem-cartaz { grid-template-columns: minmax(0, 1fr); }
   .tipos { grid-template-columns: 1fr 1fr; }
   .tipos.um { grid-template-columns: minmax(0, 28rem); }
   li.documento { grid-template-columns: minmax(0, 1fr) auto; }
