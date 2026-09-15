@@ -10,6 +10,9 @@ artigo da norma. A fonte de cada prazo e de cada requisito é a Resolução
 CONSEPE/IFBA nº 154, de 12 de dezembro de 2024, com o calendário acadêmico do
 campus.
 
+As vagas de estágio e de emprego que as empresas enviam à coordenação estão em
+<https://prof-davifr.github.io/manual-eletrotecnica/vagas/>.
+
 Há também uma página para quem ensina, com a caderneta, a nota, a recuperação e
 o conselho de classe: <https://prof-davifr.github.io/manual-eletrotecnica/professores/>.
 

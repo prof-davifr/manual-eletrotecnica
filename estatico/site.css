@@ -18,6 +18,10 @@
   --alerta: #92400e;
   --alerta-fundo: #fdf6ec;
   --realce: #b45309;
+  /* O amarelo do contador e do quadro de vagas. Só as vagas o usam: se ele
+     aparecer em outro lugar, deixa de chamar o olho. */
+  --vaga: #fbbf24;
+  --vaga-tinta: #422006;
   --largura: 64rem;
 }
 
@@ -88,6 +92,22 @@ nav.abas a {
 }
 nav.abas a:hover { background: rgba(255, 255, 255, 0.14); }
 nav.abas a.ativa { background: var(--fundo); color: var(--verde); font-weight: 600; }
+nav.abas a.destaque { color: #fff; font-weight: 600; }
+nav.abas a.destaque.ativa { color: var(--verde); }
+nav.abas .contador {
+  display: inline-block;
+  min-width: 1.45rem;
+  margin-left: 0.4rem;
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  background: var(--vaga);
+  color: var(--vaga-tinta);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.45rem;
+  text-align: center;
+  vertical-align: 0.08em;
+}
 
 nav.trilha { background: var(--papel); border-bottom: 1px solid var(--borda); }
 nav.trilha .interno {
@@ -297,7 +317,81 @@ blockquote {
 details { margin: 1.2rem 0; }
 details summary { cursor: pointer; font-weight: 600; color: var(--verde); }
 
-/* ----------------------------------------------------- vagas de estágio */
+/* ------------------------------------------------ vagas de estágio e emprego */
+
+/* O quadro do alto da página inicial: a primeira coisa que o estudante vê. */
+section.quadro-vagas {
+  background: var(--verde);
+  color: #fff;
+  border-radius: 12px;
+  border-top: 5px solid var(--vaga);
+  padding: 1.1rem 1.1rem 1.2rem;
+  margin: 0 0 2rem;
+}
+section.quadro-vagas h2 { margin: 0; font-size: 1.45rem; }
+section.quadro-vagas > p { margin: 0.25rem 0 1rem; color: #dbe9df; }
+section.quadro-vagas p.todas { margin: 1rem 0 0; }
+section.quadro-vagas p.todas a { color: #fff; font-weight: 600; }
+
+/* O cartão de um tipo de vaga: número grande, nome, para quem é. */
+.tipos { display: grid; gap: 0.7rem; margin: 0 0 1.6rem; max-width: none; }
+section.quadro-vagas .tipos { margin: 0; }
+a.tipo {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.9rem;
+  align-items: center;
+  align-content: start;
+  background: var(--papel);
+  color: var(--tinta);
+  border: 1px solid var(--borda);
+  border-left: 5px solid var(--vaga);
+  border-radius: 9px;
+  padding: 0.8rem 1rem;
+  text-decoration: none;
+}
+section.quadro-vagas a.tipo { border-color: transparent; border-left-color: var(--vaga); }
+a.tipo:hover { background: var(--verde-claro); }
+a.tipo:focus-visible { outline: 3px solid var(--vaga); outline-offset: 2px; }
+a.tipo .numero {
+  grid-row: span 2;
+  min-width: 2ch;
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  color: var(--verde);
+}
+a.tipo .nome { font-weight: 700; font-size: 1.08rem; color: var(--verde); }
+a.tipo .para { font-size: 0.9rem; color: var(--suave); }
+a.tipo > .para + .para { grid-column: 2; }
+a.tipo ul {
+  grid-column: 1 / -1;
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0.5rem 0 0;
+  border-top: 1px solid var(--borda);
+  font-size: 0.92rem;
+  max-width: none;
+}
+a.tipo li { margin: 0.2rem 0; }
+a.tipo li .empresa, a.tipo li.mais { color: var(--suave); }
+a.tipo.vazio { border-left-color: var(--borda); }
+a.tipo.vazio .numero { color: var(--suave); }
+
+section.grupo-de-vagas { margin-top: 2.4rem; scroll-margin-top: 1rem; }
+section.grupo-de-vagas > h2 { margin-top: 0; padding-top: 1.2rem; border-top: 1px solid var(--borda); }
+
+aside.rail a.vagas-do-capitulo {
+  display: block;
+  margin: 1rem 0 0;
+  padding: 0.55rem 0.7rem;
+  border-left: 4px solid var(--vaga);
+  border-radius: 0 6px 6px 0;
+  background: var(--papel);
+  font-weight: 600;
+  text-decoration: none;
+}
 
 ul.vagas { display: grid; gap: 1rem; margin-top: 1.4rem; }
 li.vaga {
@@ -310,6 +404,12 @@ li.vaga {
   gap: 1rem;
 }
 li.vaga h3 { margin-top: 0.2rem; }
+li.vaga p.recebida { margin: 0; font-size: 0.85rem; color: var(--suave); }
+li.vaga p.candidatura {
+  background: var(--verde-claro);
+  border-radius: 6px;
+  padding: 0.55rem 0.8rem;
+}
 li.vaga .empresa { color: var(--verde); font-weight: 600; margin: 0.2rem 0 0.6rem; }
 li.vaga figure { margin: 0; }
 li.vaga img {
@@ -364,6 +464,8 @@ footer.rodape p { max-width: 46rem; }
   ul.capitulos { grid-template-columns: 1fr 1fr; }
   nav.passos { grid-template-columns: 1fr 1fr; }
   li.vaga { grid-template-columns: minmax(0, 1fr) minmax(0, 18rem); align-items: start; }
+  .tipos { grid-template-columns: 1fr 1fr; }
+  .tipos.um { grid-template-columns: minmax(0, 28rem); }
   li.documento { grid-template-columns: minmax(0, 1fr) auto; }
   li.documento a.botao { justify-self: end; }
 }
