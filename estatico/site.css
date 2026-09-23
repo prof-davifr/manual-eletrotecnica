@@ -1,6 +1,6 @@
 /* Manual do Curso de Eletrotécnica. Uma folha só, sem framework, sem CDN e sem JavaScript: a
    página precisa abrir no celular do estudante, com rede ruim, e continuar
-   legível. A folha do painel (painel/estatico/painel.css) é densa de propósito;
+   legível. A folha do painel (coord/painel/estatico/painel.css) é densa de propósito;
    esta é o contrário: pouco por tela, letra grande, linha curta.
 
    A leitura de manual é sequencial. Por isso o capítulo tem trilho lateral com
